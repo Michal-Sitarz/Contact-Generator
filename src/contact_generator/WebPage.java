@@ -24,15 +24,7 @@ public class WebPage {
         fileLocation = "";
     }
 
-    public boolean saveFile(/*String fileContent*/) {
-                
-        // file content (html code & page content)
-        //String pageContent = _pageContent;
-        String pageContent = "fafki";
-                
-        Html h = new Html();
-        
-        String fileContent = h.generateHtml(pageContent);
+    public boolean saveFile(String fileContent) {
         
         // file name, file extension, file location
         String filePath = fileLocation + "\\" + fileName + "." + fileType;

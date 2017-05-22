@@ -12,6 +12,7 @@ public class Html {
         
     }
     
+    // generate html skeleton (no content)
     public String generateHtml(){
                
         HtmlElement html = new HtmlElement();
@@ -26,6 +27,7 @@ public class Html {
         return html.fullElement();
     }
     
+    // generate simple html with raw content
     public String generateHtml(String _content){
         
         HtmlElement html = new HtmlElement();
@@ -35,6 +37,26 @@ public class Html {
         HtmlElement body = new HtmlElement();
         body.setTagName("body");
         
+        body.setElementContent(_content);
+        html.setElementContent(head.fullElement()+body.fullElement());
+                
+        return html.fullElement();
+    }
+    
+    public String generateHtml(String _content, String _pageTitle){
+        
+        HtmlElement html = new HtmlElement();
+        html.setTagName("html");
+        HtmlElement head = new HtmlElement();
+        head.setTagName("head");
+        HtmlElement body = new HtmlElement();
+        body.setTagName("body");
+        
+        HtmlElement title = new HtmlElement();
+        title.setTagName("title");
+        title.setElementContent(_pageTitle);
+        
+        head.setElementContent(title.fullElement());
         body.setElementContent(_content);
         html.setElementContent(head.fullElement()+body.fullElement());
                 

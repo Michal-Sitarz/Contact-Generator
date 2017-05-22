@@ -17,12 +17,10 @@ public class Main {
     public static void main(String[] args) {
         /*
         collectDBcontacts();
-        createPage("index");
+        createPage("index", "test content");
         */
-
         //Automated Unit-Testing method >> will be disabled in release mode
         runAllTests();
-
     }
 
     //method to retrieve and collect user's data from database
@@ -39,15 +37,16 @@ public class Main {
 
     }
 
-    public static void createPage(String pageName) {
-        //String pageName = _pageName;
+    public static void createPage(String pageName, String content) {
 
         WebPage page = new WebPage();
         page.setFileName(pageName);
         page.setFileType("html");
         page.setFileLocation(System.getProperty("user.home") + "\\Desktop\\contacts");
 
-        if (page.saveFile()) {
+        Html h = new Html();
+
+        if (page.saveFile(h.generateHtml(content, pageName))) {
             System.out.println("The page: " + pageName + " has been saved to a file.");
         } else {
             System.out.println("Sorry, the page couldn't be saved to a file.");
@@ -66,7 +65,6 @@ public class Main {
          * to run automatically all prepared tests
          */
 
-        
         test1();
         testArrayList1();
         testArrayList2();
@@ -78,8 +76,8 @@ public class Main {
         testHtmlElement2();
         testHtml1();
         testHtmlWithContent1();
-        
-        
+        testHtmlWithContent2();
+
     }
 
     //temporary array with exemplar data - only for testing purposes!
@@ -158,29 +156,27 @@ public class Main {
             System.out.println(cr.allContactDetails());
         }
     }
-    
+
     // method to test System.getProperty() 
     //to generate current user's path to the Desktop folder
     private static void testUserLocation1() {
         System.out.println("\n[TEST: System.getProperty()]");
         System.out.println("Expected: current user's file path");
         System.out.print("Result:   ");
-        
+
         String userPath = System.getProperty("user.home") + "\\Desktop\\contacts";
         System.out.println(userPath);
     }
-    
 
     // method to test saveFile() method in WebPage class
     private static void testSavingFile1() {
         System.out.println("\n[TEST: saveFile()]");
         System.out.println("Expected: user's file path + correct message");
         System.out.print("Result:   ");
-        
-        collectDBcontacts();
-        createPage("index");
-    }
 
+        collectDBcontacts();
+        createPage("index", "test content");
+    }
 
     // method to test: instantiation of object HtmlElement
     // and method fullElement() to generate html code
@@ -192,10 +188,10 @@ public class Main {
         HtmlElement elem = new HtmlElement();
         elem.setTagName("body");
         elem.setElementContent("Hello World");
-        
+
         System.out.println(elem.fullElement());
     }
-    
+
     // method to test: instantiation of object HtmlElement
     // and method fullElement() to generate html code
     // adding "attributes" to the html tag
@@ -208,28 +204,42 @@ public class Main {
         elem.setTagName("a");
         elem.setElementContent("Link");
         elem.setTagAttributes("href='link.html'");
-        
+
         System.out.println(elem.fullElement());
     }
-    
+
     // method to test: instantiation of object Html
-    // and method generateSkeletonHtml() to generate basic skeleton html code
-    private static void testHtml1(){
+    // and method generateHtml() to generate basic skeleton html code
+    private static void testHtml1() {
         System.out.println("\n[TEST: Html object]");
         System.out.println("Expected: <html><head></head><body></body></html>");
         System.out.print("Result:   ");
-        
+
         Html html = new Html();
         System.out.println(html.generateHtml());
-        
+
     }
-    
-    private static void testHtmlWithContent1(){
+
+    // method to test: instantiation of object Html
+    // and method generateHtml() to generate html code with some content
+    private static void testHtmlWithContent1() {
         System.out.println("\n[TEST: Html object with content]");
         System.out.println("Expected: <html><head></head><body>Content</body></html>");
         System.out.print("Result:   ");
-        
+
         Html html = new Html();
         System.out.println(html.generateHtml("Content"));
+    }
+    
+    // method to test: instantiation of object Html
+    // and method generateHtml() to generate html code with some content
+    // and a page title
+    private static void testHtmlWithContent2() {
+        System.out.println("\n[TEST: Html object with content & page title]");
+        System.out.println("Expected: <html><head><title>Page Title</title></head><body>Content</body></html>");
+        System.out.print("Result:   ");
+
+        Html html = new Html();
+        System.out.println(html.generateHtml("Content","Page Title"));
     }
 }
