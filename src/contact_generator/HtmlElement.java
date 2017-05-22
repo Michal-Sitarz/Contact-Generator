@@ -12,6 +12,9 @@ public class HtmlElement {
     private String elementContent;
     private boolean tagClose;
 
+    /**
+     *
+     */
     public HtmlElement() {
         tagName = "";
         tagAttributes = "";
@@ -19,6 +22,10 @@ public class HtmlElement {
         tagClose = true;
     }
 
+    /**
+     *
+     * @return
+     */
     public String fullElement() {
 
         String fullElement;
@@ -57,6 +64,10 @@ public class HtmlElement {
         return fullElement;
     }
 
+    /**
+     *
+     * @return
+     */
     public String simpleTag() {
 
         String simpleTag;
@@ -66,35 +77,69 @@ public class HtmlElement {
     }
 
     // SETters:
+
+    /**
+     *
+     * @param tagName
+     */
     public void setTagName(String tagName) {
         this.tagName = tagName;
     }
 
+    /**
+     *
+     * @param tagAttributes
+     */
     public void setTagAttributes(String tagAttributes) {
         this.tagAttributes = tagAttributes;
     }
 
+    /**
+     *
+     * @param elementContent
+     */
     public void setElementContent(String elementContent) {
         this.elementContent = elementContent;
     }
 
+    /**
+     *
+     * @param tagClose
+     */
     public void setTagClose(boolean tagClose) {
         this.tagClose = tagClose;
     }
 
     // GETters:
+
+    /**
+     *
+     * @return
+     */
     public String getTagName() {
         return tagName;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTagAttributes() {
         return tagAttributes;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getElementContent() {
         return elementContent;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isTagClose() {
         return tagClose;
     }

@@ -10,11 +10,15 @@ import java.util.ArrayList;
  */
 public class Main {
 
+    /**
+     *
+     */
     public static ArrayList<ContactRecord> allContacts;
     private static boolean success = false;
 
     /**
      * @param args the command line arguments
+     * @throws java.sql.SQLException
      */
     public static void main(String[] args) throws SQLException {
         
@@ -34,6 +38,11 @@ public class Main {
     }
 
     //method to retrieve and collect user's data from database
+
+    /**
+     *
+     * @throws SQLException
+     */
     public static void collectDBcontacts() throws SQLException {
         ContactDB cdb = new ContactDB();
         if (cdb.connectDB()) {
@@ -46,6 +55,12 @@ public class Main {
     }
 
     // method to create single html page
+
+    /**
+     *
+     * @param pageName
+     * @param content
+     */
     public static void createPage(String pageName, String content) {
 
         WebPage page = new WebPage();
@@ -63,6 +78,10 @@ public class Main {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public static String prepareIndexPageContent() {
 
         String pageContent = "";
@@ -82,6 +101,10 @@ public class Main {
         return pageContent;
     }
 
+    /**
+     *
+     * @return
+     */
     public static boolean generateIndexPage() {
         success=false;
         
@@ -91,6 +114,10 @@ public class Main {
         return success;
     }
 
+    /**
+     *
+     * @return
+     */
     public static boolean generateEmployeePages() {
         success = false;
         

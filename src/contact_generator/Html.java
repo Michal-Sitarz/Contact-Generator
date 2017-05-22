@@ -8,11 +8,19 @@ package contact_generator;
  */
 public class Html {
     
+    /**
+     *
+     */
     public Html(){
         
     }
     
     // generate html skeleton code (no content)
+
+    /**
+     *
+     * @return
+     */
     public String generateHtml(){
                
         HtmlElement html = new HtmlElement();
@@ -28,6 +36,12 @@ public class Html {
     }
     
     // generate simple html code with raw content
+
+    /**
+     *
+     * @param _content
+     * @return
+     */
     public String generateHtml(String _content){
         
         HtmlElement html = new HtmlElement();
@@ -44,6 +58,13 @@ public class Html {
     }
     
     // generate html code with content and page title
+
+    /**
+     *
+     * @param _content
+     * @param _pageTitle
+     * @return
+     */
     public String generateHtml(String _content, String _pageTitle){
         
         HtmlElement html = new HtmlElement();

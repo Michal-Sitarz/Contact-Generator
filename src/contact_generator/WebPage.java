@@ -18,12 +18,20 @@ public class WebPage {
 
     private boolean fileSaved = false;
 
+    /**
+     *
+     */
     public WebPage() {
         fileName = "";
         fileType = "";
         fileLocation = "";
     }
 
+    /**
+     *
+     * @param fileContent
+     * @return
+     */
     public boolean saveFile(String fileContent) {
         
         // file name, file extension, file location
@@ -56,27 +64,53 @@ public class WebPage {
     }
 
     // SETters:
+
+    /**
+     *
+     * @param fileName
+     */
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
 
+    /**
+     *
+     * @param fileType
+     */
     public void setFileType(String fileType) {
         this.fileType = fileType;
     }
 
+    /**
+     *
+     * @param fileLocation
+     */
     public void setFileLocation(String fileLocation) {
         this.fileLocation = fileLocation;
     }
 
     // GETters:
+
+    /**
+     *
+     * @return
+     */
     public String getFileName() {
         return fileName;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFileType() {
         return fileType;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFileLocation() {
         return fileLocation;
     }

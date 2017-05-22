@@ -17,6 +17,11 @@ public class ContactDB {
 
     private boolean dbConn;
 
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     public boolean connectDB() throws SQLException {
         dbConn = false;
 
@@ -58,6 +63,10 @@ public class ContactDB {
         return this.dbConn;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<ContactRecord> retrieveContacts() {
         
         return allContacts;
