@@ -1,5 +1,6 @@
 package contact_generator;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -15,8 +16,9 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         
+        allContacts = new ArrayList<>();
         collectDBcontacts();
         generateIndexPage();
         generateEmployeePages();
@@ -28,11 +30,11 @@ public class Main {
         }
 
         //Automated Unit-Testing method >> will be disabled in release mode
-        runAllTests();
+        //runAllTests();
     }
 
     //method to retrieve and collect user's data from database
-    public static void collectDBcontacts() {
+    public static void collectDBcontacts() throws SQLException {
         ContactDB cdb = new ContactDB();
         if (cdb.connectDB()) {
             cdb.retrieveContacts();
