@@ -15,12 +15,15 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        /*
+
         collectDBcontacts();
-        createPage("index", "test content");
-        */
+        //if array exists, then create pages
+        //prepare context and create index page
+        createPage("index",prepareIndexPageContent());
+        //prepare context for createEmployeeDetailsPages();
+
         //Automated Unit-Testing method >> will be disabled in release mode
-        runAllTests();
+        //runAllTests();
     }
 
     //method to retrieve and collect user's data from database
@@ -37,6 +40,7 @@ public class Main {
 
     }
 
+    // method to create single html page
     public static void createPage(String pageName, String content) {
 
         WebPage page = new WebPage();
@@ -54,6 +58,27 @@ public class Main {
 
     }
 
+    public static String prepareIndexPageContent() {
+
+        String pageContent = "";
+
+        for (ContactRecord cr : allContacts) {
+            HtmlElement a = new HtmlElement();
+            a.setTagName("a");
+            a.setTagAttributes("href='" + Integer.toString(cr.getEmployeeID()) + ".html'");
+            a.setElementContent(cr.basicContactDetails());
+            pageContent = pageContent.concat(a.fullElement());
+            
+            HtmlElement br = new HtmlElement();
+            br.setTagName("br");
+            pageContent = pageContent.concat(br.simpleTag());
+        }
+        
+        return pageContent;
+    }
+    
+    
+
     /* 
      * =========================
      * UNIT-TESTING methods here
@@ -64,6 +89,12 @@ public class Main {
          * list of all Unit-Testing methods
          * to run automatically all prepared tests
          */
+        
+        // after connecting with DB, for testing purposes:
+        // delete default ArrayList: allContacts with DB data
+        // and replace it using testing dataset from tempArray()
+        // just run the tempArray method below:
+        tempArray();
 
         test1();
         testArrayList1();
@@ -77,6 +108,10 @@ public class Main {
         testHtml1();
         testHtmlWithContent1();
         testHtmlWithContent2();
+        testPrepareIndexPageContent1();
+        
+        // later on, to test real DB, delete temporary ArrayList
+        // and run DB connection and data retrieving
 
     }
 
@@ -174,7 +209,6 @@ public class Main {
         System.out.println("Expected: user's file path + correct message");
         System.out.print("Result:   ");
 
-        collectDBcontacts();
         createPage("index", "test content");
     }
 
@@ -230,7 +264,7 @@ public class Main {
         Html html = new Html();
         System.out.println(html.generateHtml("Content"));
     }
-    
+
     // method to test: instantiation of object Html
     // and method generateHtml() to generate html code with some content
     // and a page title
@@ -240,6 +274,16 @@ public class Main {
         System.out.print("Result:   ");
 
         Html html = new Html();
-        System.out.println(html.generateHtml("Content","Page Title"));
+        System.out.println(html.generateHtml("Content", "Page Title"));
+    }
+    
+    // method to test: prepareIndexPageContent()
+    private static void testPrepareIndexPageContent1(){
+        System.out.println("\n[TEST: prepareIndexPageContent()");
+        System.out.println("Expected 3 rows of: <a href='ID.html'>ID name surname</a></br>");
+        System.out.println("Result:");
+        
+        System.out.println(prepareIndexPageContent());
+
     }
 }

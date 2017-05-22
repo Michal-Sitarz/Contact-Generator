@@ -60,7 +60,7 @@ public class HtmlElement {
     public String simpleTag() {
 
         String simpleTag;
-        simpleTag = "</" + tagName + ">";
+        simpleTag = "</" + tagName + ">\n";
 
         return simpleTag;
     }

@@ -12,7 +12,7 @@ public class Html {
         
     }
     
-    // generate html skeleton (no content)
+    // generate html skeleton code (no content)
     public String generateHtml(){
                
         HtmlElement html = new HtmlElement();
@@ -27,7 +27,7 @@ public class Html {
         return html.fullElement();
     }
     
-    // generate simple html with raw content
+    // generate simple html code with raw content
     public String generateHtml(String _content){
         
         HtmlElement html = new HtmlElement();
@@ -43,6 +43,7 @@ public class Html {
         return html.fullElement();
     }
     
+    // generate html code with content and page title
     public String generateHtml(String _content, String _pageTitle){
         
         HtmlElement html = new HtmlElement();
