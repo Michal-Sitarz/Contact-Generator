@@ -17,10 +17,14 @@ public class Main {
     public static void main(String[] args) {
 
         collectDBcontacts();
-        //if array exists, then create pages
-        //prepare context and create index page
-        createPage("index",prepareIndexPageContent());
-        //prepare context for createEmployeeDetailsPages();
+        generateIndexPage();
+        generateEmployeePages();
+
+        if (generateIndexPage() && generateEmployeePages()) {
+            System.out.println(">> The HTML Contacts Generator has been created for you! :) \n>> Please run it using the file: [ "+System.getProperty("user.home") + "\\Desktop\\contacts\\index.html ] \n>> Enjoy it!");
+        } else {
+            System.out.println("Something went wrong: try again. \nIf the problem still occurs, please contact your IT Support service.");
+        }
 
         //Automated Unit-Testing method >> will be disabled in release mode
         //runAllTests();
@@ -29,7 +33,6 @@ public class Main {
     //method to retrieve and collect user's data from database
     public static void collectDBcontacts() {
         ContactDB cdb = new ContactDB();
-
         if (cdb.connectDB()) {
             cdb.retrieveContacts();
         } else {
@@ -37,7 +40,6 @@ public class Main {
             System.out.println("Sorry, database is currently unavailable...");
             System.exit(0);
         }
-
     }
 
     // method to create single html page
@@ -68,16 +70,56 @@ public class Main {
             a.setTagAttributes("href='" + Integer.toString(cr.getEmployeeID()) + ".html'");
             a.setElementContent(cr.basicContactDetails());
             pageContent = pageContent.concat(a.fullElement());
-            
+
             HtmlElement br = new HtmlElement();
             br.setTagName("br");
             pageContent = pageContent.concat(br.simpleTag());
         }
-        
+
         return pageContent;
     }
-    
-    
+
+    public static boolean generateIndexPage() {
+        createPage("index", prepareIndexPageContent());
+        return true;
+    }
+
+    public static boolean generateEmployeePages() {
+        boolean success = false;
+        int counter = 0;
+        for (ContactRecord cr : allContacts) {
+            String pageContent = "";
+
+            HtmlElement a = new HtmlElement();
+            a.setTagName("a");
+            a.setTagAttributes("href='index.html'");
+            a.setElementContent("Home Page");
+            pageContent = pageContent.concat(a.fullElement());
+
+            HtmlElement br = new HtmlElement();
+            br.setTagName("br");
+            pageContent = pageContent.concat(br.simpleTag());
+
+            HtmlElement hr = new HtmlElement();
+            hr.setTagName("hr");
+            pageContent = pageContent.concat(hr.simpleTag());
+            pageContent = pageContent.concat(br.simpleTag());
+
+            pageContent = pageContent.concat(cr.allContactDetails());
+
+            createPage(Integer.toString(cr.getEmployeeID()), pageContent);
+
+            counter++;
+        }
+
+        System.out.println("\n"+counter + " employees' pages have been created.");
+
+        if (counter > 0) {
+            success = true;
+        }
+
+        return success;
+    }
 
     /* 
      * =========================
@@ -89,7 +131,7 @@ public class Main {
          * list of all Unit-Testing methods
          * to run automatically all prepared tests
          */
-        
+
         // after connecting with DB, for testing purposes:
         // delete default ArrayList: allContacts with DB data
         // and replace it using testing dataset from tempArray()
@@ -109,10 +151,9 @@ public class Main {
         testHtmlWithContent1();
         testHtmlWithContent2();
         testPrepareIndexPageContent1();
-        
+
         // later on, to test real DB, delete temporary ArrayList
         // and run DB connection and data retrieving
-
     }
 
     //temporary array with exemplar data - only for testing purposes!
@@ -276,13 +317,13 @@ public class Main {
         Html html = new Html();
         System.out.println(html.generateHtml("Content", "Page Title"));
     }
-    
+
     // method to test: prepareIndexPageContent()
-    private static void testPrepareIndexPageContent1(){
+    private static void testPrepareIndexPageContent1() {
         System.out.println("\n[TEST: prepareIndexPageContent()");
         System.out.println("Expected 3 rows of: <a href='ID.html'>ID name surname</a></br>");
         System.out.println("Result:");
-        
+
         System.out.println(prepareIndexPageContent());
 
     }
