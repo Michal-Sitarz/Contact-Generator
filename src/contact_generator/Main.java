@@ -10,24 +10,25 @@ import java.util.ArrayList;
 public class Main {
 
     public static ArrayList<ContactRecord> allContacts;
+    private static boolean success = false;
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        
         collectDBcontacts();
         generateIndexPage();
         generateEmployeePages();
-
-        if (generateIndexPage() && generateEmployeePages()) {
+        
+        if (success) {
             System.out.println(">> The HTML Contacts Generator has been created for you! :) \n>> Please run it using the file: [ "+System.getProperty("user.home") + "\\Desktop\\contacts\\index.html ] \n>> Enjoy it!");
         } else {
-            System.out.println("Something went wrong: try again. \nIf the problem still occurs, please contact your IT Support service.");
+            System.out.println("Something went wrong: please try again. \nIf the problem still occurs, please contact your IT Support service.");
         }
 
         //Automated Unit-Testing method >> will be disabled in release mode
-        //runAllTests();
+        runAllTests();
     }
 
     //method to retrieve and collect user's data from database
@@ -80,12 +81,17 @@ public class Main {
     }
 
     public static boolean generateIndexPage() {
+        success=false;
+        
         createPage("index", prepareIndexPageContent());
-        return true;
+        
+        success=true;
+        return success;
     }
 
     public static boolean generateEmployeePages() {
-        boolean success = false;
+        success = false;
+        
         int counter = 0;
         for (ContactRecord cr : allContacts) {
             String pageContent = "";
