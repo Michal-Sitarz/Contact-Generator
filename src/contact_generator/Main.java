@@ -34,7 +34,7 @@ public class Main {
         }
 
         //Automated Unit-Testing method >> will be disabled in release mode
-        //runAllTests();
+        runAllTests();
     }
 
     //method to retrieve and collect user's data from database
@@ -162,7 +162,7 @@ public class Main {
      * =========================
      */
     private static void runAllTests() {
-        /*
+        /**
          * list of all Unit-Testing methods
          * to run automatically all prepared tests
          */
