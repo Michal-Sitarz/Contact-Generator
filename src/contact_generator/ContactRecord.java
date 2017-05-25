@@ -14,7 +14,7 @@ public class ContactRecord {
     private String phone;
 
     /**
-     *
+     *  default CTOR
      */
     public ContactRecord() {
         employeeID = 0;
@@ -25,7 +25,10 @@ public class ContactRecord {
     }
 
     /**
-     *
+     * method to return
+     * all the details of one record
+     * in single string
+     * 
      * @return
      */
     public String allContactDetails() {
@@ -37,7 +40,10 @@ public class ContactRecord {
     }
 
     /**
-     *
+     * method to return
+     * the minimum details of one record
+     * in single string
+     * 
      * @return
      */
     public String basicContactDetails() {
@@ -50,6 +56,7 @@ public class ContactRecord {
     // SETters:
 
     /**
+     * SETter for:
      *
      * @param _employeeID
      */
@@ -58,6 +65,7 @@ public class ContactRecord {
     }
 
     /**
+     * SETter for:
      *
      * @param _firstName
      */
@@ -66,6 +74,7 @@ public class ContactRecord {
     }
 
     /**
+     * SETter for:
      *
      * @param _lastName
      */
@@ -74,6 +83,7 @@ public class ContactRecord {
     }
 
     /**
+     * SETter for:
      *
      * @param _email
      */
@@ -82,6 +92,7 @@ public class ContactRecord {
     }
 
     /**
+     * SETter for:
      *
      * @param _phone
      */
@@ -92,6 +103,7 @@ public class ContactRecord {
     // GETters:
 
     /**
+     * GETter for:
      *
      * @return
      */
@@ -100,6 +112,7 @@ public class ContactRecord {
     }
 
     /**
+     * GETter for:
      *
      * @return
      */
@@ -108,6 +121,7 @@ public class ContactRecord {
     }
 
     /**
+     * GETter for:
      *
      * @return
      */
@@ -116,6 +130,7 @@ public class ContactRecord {
     }
 
     /**
+     * GETter for:
      *
      * @return
      */
@@ -124,6 +139,7 @@ public class ContactRecord {
     }
 
     /**
+     * GETter for:
      *
      * @return
      */

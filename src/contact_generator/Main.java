@@ -11,7 +11,8 @@ import java.util.ArrayList;
 public class Main {
 
     /**
-     *
+     *   global ArrayList
+     *   global variable to control status of operations
      */
     public static ArrayList<ContactRecord> allContacts;
     private static boolean success = false;
@@ -32,15 +33,18 @@ public class Main {
         } else {
             System.out.println("Something went wrong: please try again. \nIf the problem still occurs, please contact your IT Support service.");
         }
+        
 
         //Automated Unit-Testing method >> will be disabled in release mode
-        runAllTests();
+        //runAllTests();
     }
 
     //method to retrieve and collect user's data from database
 
     /**
-     *
+     * method to connect with database
+     * retrieve the data, and fill it into ArrayList
+     * 
      * @throws SQLException
      */
     public static void collectDBcontacts() throws SQLException {
@@ -54,10 +58,9 @@ public class Main {
         }
     }
 
-    // method to create single html page
-
     /**
-     *
+     * method to create single html page
+     * 
      * @param pageName
      * @param content
      */
@@ -79,6 +82,7 @@ public class Main {
     }
 
     /**
+     * method to prepare the content of Index page
      *
      * @return
      */
@@ -102,6 +106,7 @@ public class Main {
     }
 
     /**
+     * method to generate Index page file with content
      *
      * @return
      */
@@ -115,6 +120,9 @@ public class Main {
     }
 
     /**
+     * method to generate Employee's pages
+     * for each ROW in a database's table
+     * it makes: content + saves the file 
      *
      * @return
      */
@@ -156,7 +164,7 @@ public class Main {
         return success;
     }
 
-    /* 
+    /** 
      * =========================
      * UNIT-TESTING methods here
      * =========================
@@ -165,12 +173,14 @@ public class Main {
         /**
          * list of all Unit-Testing methods
          * to run automatically all prepared tests
+         * 
+         * After connecting with DB, for testing purposes:
+         * delete default ArrayList: allContacts with DB data
+         * and replace it using testing dataset from tempArray()
+         * just run the tempArray method below:
+         * 
          */
-
-        // after connecting with DB, for testing purposes:
-        // delete default ArrayList: allContacts with DB data
-        // and replace it using testing dataset from tempArray()
-        // just run the tempArray method below:
+        
         tempArray();
 
         test1();
@@ -187,11 +197,11 @@ public class Main {
         testHtmlWithContent2();
         testPrepareIndexPageContent1();
 
-        // later on, to test real DB, delete temporary ArrayList
-        // and run DB connection and data retrieving
     }
-
-    //temporary array with exemplar data - only for testing purposes!
+    
+    /** 
+     *  temporary array with exemplar data - only for testing purposes!
+     */
     private static void tempArray() {
         allContacts = new ArrayList<>();
         for (int i = 1; i <= 3; i++) {
@@ -204,8 +214,10 @@ public class Main {
             allContacts.add(cr);
         }
     }
-
-    // method to test default Main method and standard output
+    
+    /** 
+     * method to test default Main method and standard output
+     */
     private static void test1() {
         System.out.println("\n[TEST: main()]");
         System.out.println("Expected: check");
@@ -215,7 +227,9 @@ public class Main {
         System.out.println(test);
     }
 
-    // method to test an arraylist of type ContactRecord
+    /** 
+     * method to test an arraylist of type ContactRecord
+     */
     private static void testArrayList1() {
         System.out.println("\n[TEST: ArrayList+ContactRecord] : long display");
         System.out.println("Expected 3 rows of:\nID: name: surname: email:          phone:");
@@ -228,7 +242,9 @@ public class Main {
         }
     }
 
-    // method to test an arraylist of type ContactRecord
+    /** 
+     * method to test an arraylist of type ContactRecord
+     */
     private static void testArrayList2() {
         System.out.println("\n[TEST: ArrayList+ContactRecord] : short display");
         System.out.println("Expected 3 rows of:\nID: name: surname:");
@@ -241,7 +257,9 @@ public class Main {
         }
     }
 
-    // method to test ContactDB class
+    /** 
+     * method to test ContactDB class
+     */
     private static void testContactDB1() {
         System.out.println("\n[TEST: ContactDB class]");
         System.out.println("Expected 3 rows of:\nID: name: surname: email:          phone:");
@@ -256,7 +274,9 @@ public class Main {
         }
     }
 
-    // method to test collectDBcontacts() method
+    /** 
+     * method to test collectDBcontacts() method
+     */
     private static void testCollectDBcontacts() {
         System.out.println("\n[TEST: collectDBcontacts()]");
         System.out.println("Expected 3 rows of:\nID: name: surname: email:          phone:");
@@ -268,8 +288,10 @@ public class Main {
         }
     }
 
-    // method to test System.getProperty() 
-    //to generate current user's path to the Desktop folder
+    /** 
+     * method to test System.getProperty() 
+     * to generate current user's path to the Desktop folder
+     */
     private static void testUserLocation1() {
         System.out.println("\n[TEST: System.getProperty()]");
         System.out.println("Expected: current user's file path");
@@ -279,7 +301,9 @@ public class Main {
         System.out.println(userPath);
     }
 
-    // method to test saveFile() method in WebPage class
+    /** 
+     * method to test saveFile() method in WebPage class
+     */
     private static void testSavingFile1() {
         System.out.println("\n[TEST: saveFile()]");
         System.out.println("Expected: user's file path + correct message");
@@ -288,8 +312,10 @@ public class Main {
         createPage("index", "test content");
     }
 
-    // method to test: instantiation of object HtmlElement
-    // and method fullElement() to generate html code
+    /** 
+     * method to test: instantiation of object HtmlElement
+     * and method fullElement() to generate html code
+     */
     private static void testHtmlElement1() {
         System.out.println("\n[TEST: HtmlElement object1]");
         System.out.println("Expected: <body>Hello World</body>");
@@ -302,9 +328,11 @@ public class Main {
         System.out.println(elem.fullElement());
     }
 
-    // method to test: instantiation of object HtmlElement
-    // and method fullElement() to generate html code
-    // adding "attributes" to the html tag
+    /** 
+     * method to test: instantiation of object HtmlElement
+     * and method fullElement() to generate html code
+     * adding "attributes" to the html tag
+     */
     private static void testHtmlElement2() {
         System.out.println("\n[TEST: HtmlElement object2]");
         System.out.println("Expected: <a href='link.html'>Link</a>");
@@ -318,8 +346,10 @@ public class Main {
         System.out.println(elem.fullElement());
     }
 
-    // method to test: instantiation of object Html
-    // and method generateHtml() to generate basic skeleton html code
+    /** 
+     * method to test: instantiation of object Html
+     * and method generateHtml() to generate basic skeleton html code
+     */
     private static void testHtml1() {
         System.out.println("\n[TEST: Html object]");
         System.out.println("Expected: <html><head></head><body></body></html>");
@@ -330,8 +360,10 @@ public class Main {
 
     }
 
-    // method to test: instantiation of object Html
-    // and method generateHtml() to generate html code with some content
+    /** 
+     * method to test: instantiation of object Html
+     * and method generateHtml() to generate html code with some content
+     */
     private static void testHtmlWithContent1() {
         System.out.println("\n[TEST: Html object with content]");
         System.out.println("Expected: <html><head></head><body>Content</body></html>");
@@ -341,9 +373,12 @@ public class Main {
         System.out.println(html.generateHtml("Content"));
     }
 
-    // method to test: instantiation of object Html
-    // and method generateHtml() to generate html code with some content
-    // and a page title
+    
+    /** 
+     * method to test: instantiation of object Html
+     * and method generateHtml() to generate html code with some content
+     * and a page title
+     */
     private static void testHtmlWithContent2() {
         System.out.println("\n[TEST: Html object with content & page title]");
         System.out.println("Expected: <html><head><title>Page Title</title></head><body>Content</body></html>");
@@ -353,7 +388,9 @@ public class Main {
         System.out.println(html.generateHtml("Content", "Page Title"));
     }
 
-    // method to test: prepareIndexPageContent()
+    /** 
+     * method to test: prepareIndexPageContent()
+     */
     private static void testPrepareIndexPageContent1() {
         System.out.println("\n[TEST: prepareIndexPageContent()");
         System.out.println("Expected 3 rows of: <a href='ID.html'>ID name surname</a></br>");

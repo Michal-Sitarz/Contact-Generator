@@ -6,14 +6,15 @@ package contact_generator;
  * @author Michal Sitarz
  */
 public class HtmlElement {
-
+    
+    //global fields
     private String tagName;
     private String tagAttributes;
     private String elementContent;
     private boolean tagClose;
 
     /**
-     *
+     * default CTOR
      */
     public HtmlElement() {
         tagName = "";
@@ -23,6 +24,8 @@ public class HtmlElement {
     }
 
     /**
+     * method to create and return
+     * full html code for the single element
      *
      * @return
      */
@@ -65,6 +68,8 @@ public class HtmlElement {
     }
 
     /**
+     * method to create and return
+     * simple tag, like: br or hr
      *
      * @return
      */
@@ -79,7 +84,8 @@ public class HtmlElement {
     // SETters:
 
     /**
-     *
+     * SETter for:
+     * 
      * @param tagName
      */
     public void setTagName(String tagName) {
@@ -87,6 +93,7 @@ public class HtmlElement {
     }
 
     /**
+     * SETter for:
      *
      * @param tagAttributes
      */
@@ -95,6 +102,7 @@ public class HtmlElement {
     }
 
     /**
+     * SETter for:
      *
      * @param elementContent
      */
@@ -103,6 +111,7 @@ public class HtmlElement {
     }
 
     /**
+     * SETter for:
      *
      * @param tagClose
      */
@@ -113,6 +122,7 @@ public class HtmlElement {
     // GETters:
 
     /**
+     * GETter for:
      *
      * @return
      */
@@ -121,6 +131,7 @@ public class HtmlElement {
     }
 
     /**
+     * GETter for:
      *
      * @return
      */
@@ -129,6 +140,7 @@ public class HtmlElement {
     }
 
     /**
+     * GETter for:
      *
      * @return
      */
@@ -137,6 +149,7 @@ public class HtmlElement {
     }
 
     /**
+     * GETter for:
      *
      * @return
      */

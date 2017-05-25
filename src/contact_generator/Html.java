@@ -9,15 +9,14 @@ package contact_generator;
 public class Html {
     
     /**
-     *
+     * default CTOR
      */
     public Html(){
         
     }
     
-    // generate html skeleton code (no content)
-
     /**
+     * method to generate html only skeleton code
      *
      * @return
      */
@@ -35,9 +34,8 @@ public class Html {
         return html.fullElement();
     }
     
-    // generate simple html code with raw content
-
     /**
+     * method to generate simple html code with raw content
      *
      * @param _content
      * @return
@@ -57,9 +55,8 @@ public class Html {
         return html.fullElement();
     }
     
-    // generate html code with content and page title
-
     /**
+     * method to generate html code with content and page title
      *
      * @param _content
      * @param _pageTitle

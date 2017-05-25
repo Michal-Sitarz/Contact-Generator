@@ -18,6 +18,8 @@ public class ContactDB {
     private boolean dbConn;
 
     /**
+     * method that makes and maintains 
+     * the connection with the database
      *
      * @return
      * @throws SQLException
@@ -64,6 +66,7 @@ public class ContactDB {
     }
 
     /**
+     * method to retrieve the ArrayList
      *
      * @return
      */
@@ -72,12 +75,16 @@ public class ContactDB {
         return allContacts;
     }
 
-    /* 
+    /** 
      * =========================
      * UNIT-TESTING methods here
      * =========================
      */
-    //temporary array with exemplar data - only for testing purposes!
+    
+    /**
+     * temporary array with exemplar data - only for testing purposes!
+     */
+    
     private static void tempDBArray() {
         allContacts = new ArrayList<>();
         for (int i = 1; i <= 3; i++) {

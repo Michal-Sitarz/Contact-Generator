@@ -11,15 +11,19 @@ import java.io.PrintStream;
  * @author Michal Sitarz
  */
 public class WebPage {
-
+    
+    // global fields
     private String fileName;
     private String fileType;
     private String fileLocation;
-
+    
+    /**
+     * global variable to control the status of file saving operation
+     */
     private boolean fileSaved = false;
 
     /**
-     *
+     * default CTOR
      */
     public WebPage() {
         fileName = "";
@@ -28,6 +32,7 @@ public class WebPage {
     }
 
     /**
+     * method to save the file on a local hard disk drive
      *
      * @param fileContent
      * @return
@@ -66,6 +71,7 @@ public class WebPage {
     // SETters:
 
     /**
+     * SETter for:
      *
      * @param fileName
      */
@@ -74,6 +80,7 @@ public class WebPage {
     }
 
     /**
+     * SETter for:
      *
      * @param fileType
      */
@@ -82,6 +89,7 @@ public class WebPage {
     }
 
     /**
+     * SETter for:
      *
      * @param fileLocation
      */
@@ -92,6 +100,7 @@ public class WebPage {
     // GETters:
 
     /**
+     * GETter for:
      *
      * @return
      */
@@ -100,6 +109,7 @@ public class WebPage {
     }
 
     /**
+     * GETter for:
      *
      * @return
      */
@@ -108,6 +118,7 @@ public class WebPage {
     }
 
     /**
+     * GETter for:
      *
      * @return
      */
