@@ -10,7 +10,7 @@ Java, Oracle SQL, HTML
 <b>Tools:</b><br>
 Netbeans
 
-<b>System Design files:</b>
+<b>Design files:</b>
   <br><a href='CRC cards - Contact Generator.pdf'>CRC cards</a>
   <br><a href='Class Diagram - Contact Generator.pdf'>Class Diagram</a>
   <br><a href='Use Case Diagram - Contact Generator.pdf'>Use Case Diagram</a>
