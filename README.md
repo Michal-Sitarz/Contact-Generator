@@ -1,11 +1,14 @@
 # Contact-Generator
 
-<b>Description:</b><br> Java app to generate website with employees’ contact details from database. 
+<b>Description:</b><br> 
+Java app to generate website with employees’ contact details from database. 
 <br>(college project)
 
-<b>Technologies:</b><br> Java, Oracle SQL, HTML
+<b>Technologies:</b><br> 
+Java, Oracle SQL, HTML
 
-<b>Tools:</b><br> Netbeans
+<b>Tools:</b><br>
+Netbeans
 
 <b>OOAD files:</b>
   <br><a href='CRC cards - Contact Generator.pdf'>CRC cards</a>
