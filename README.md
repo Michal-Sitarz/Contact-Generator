@@ -6,3 +6,10 @@
 <b>Technologies:</b><br> Java, Oracle SQL, HTML
 
 <b>Tools:</b><br> Netbeans
+
+<b>OOAD files:</b>
+  <br><a href='CRC cards - Contact Generator.pdf'>CRC cards</a>
+  <br><a href='Class Diagram - Contact Generator.pdf'>Class Diagram</a>
+  <br><a href='Use Case Diagram - Contact Generator.pdf'>Use Case Diagram</a>
+  <br><a href='Activity Diagram - Contact Generator.pdf'>Activity Diagram</a>
+  <br><a href='Sequence Diagram - Contact Generator.pdf'>Sequence Diagram</a>  
